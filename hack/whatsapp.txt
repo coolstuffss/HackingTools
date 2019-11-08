@@ -1,0 +1,3 @@
+Get messages from user (#user)
+Fetching data from messages: phone number (#num)
+Sending data to sever (D13D13CRUC1F13D)

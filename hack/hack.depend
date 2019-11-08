@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1573230533 source:f:\documenti\fcamusoc++11\hackingtools\hack\main.cpp
+	<iostream>
+	<thread>
+	<chrono>
+	<string>
+

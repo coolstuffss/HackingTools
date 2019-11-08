@@ -1,0 +1,5 @@
+#include <fstream>
+
+namespace hackingtools{
+    
+}
