@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1573237205 source:c:\users\seria\onedrive\php\hackingtools\sas\main.cpp
+	<iostream>
+	<string.h>
+	<windows.h>
+
