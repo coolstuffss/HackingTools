@@ -1,0 +1,15 @@
+#define Blue 1
+#define Green 2
+#define Cyan 3
+#define Red 4
+#define Purple 5
+#define Yellow 6
+#define Default 7
+#define Gray 8
+#define Bblue 9
+#define Bgreen 10
+#define Bcyan 11
+#define Bred 12
+#define Pink 13
+#define Yellow 14
+#define Bwhite 15
