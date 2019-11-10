@@ -7,6 +7,8 @@
 #include <cstdio>
 #include <windows.h>
 
+#include "hackingtools.h"
+
 using namespace std;
 
 /*
@@ -31,6 +33,7 @@ void multipletargets(int, char**);
 int main(int argc, char **argv)
 {
     int optionNumber = options(argv[1]);
+    hackingtools::prova("ciao");
     /*Your favorite pausing goes here*/
     switch (optionNumber)
     {

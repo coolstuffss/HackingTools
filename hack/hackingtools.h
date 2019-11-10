@@ -1,5 +1,7 @@
 #include <fstream>
+#include <string>
 
-namespace hackingtools{
-    
+namespace hackingtools
+{
+    void prova(std::string);
 }
