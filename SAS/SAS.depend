@@ -4,3 +4,12 @@
 	<string.h>
 	<windows.h>
 
+1573404568 source:f:\documenti\fcamusoc++11\hackingtools\sas\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<iostream>
+	<sstream>
+	<string>
+	<windows.h>
+	<fstream>
+

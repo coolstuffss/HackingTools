@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <windows.h>
 #include <fstream>
@@ -37,32 +38,30 @@ int main()
 void getHack()
 {
     string line;
-    fstream meth{"whatsapp.txt", ios::in};
+    ifstream meth;
     string out;
-    string *lines=nullptr;
+    istringstream *lines = nullptr;
 
+    meth.open("whatsapp.txt");
         if(!meth)
         {
             cout << "no such file!" << endl;
             exit(1);
         }
 
-    int linesnum=0;
-        while(getline(meth,line)){
-            linesnum++;
-        }
-    cout << linesnum;
-    lines = new string[linesnum];
-    int i=0;
-        while(getline(meth,line) && i<linesnum){
-            lines[i] = new string;
-            lines[i] = line;
+    int linesnum = 3;
+    cout << linesnum << endl;
+    lines = new istringstream[linesnum];
+    int i = 0;
+        while(getline(meth, line) && i < linesnum){
+            lines[i].str(line);
             i++;
         }
+
     meth.close();
 
-        for(int j=0;j<linesnum;j++){
-            cout << lines[j] << endl;
+        for(int j = 0; j < linesnum; j++){
+            cout << lines[j].str() << endl;
         }
 }
 string getTarget(){
