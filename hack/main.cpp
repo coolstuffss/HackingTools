@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <thread>
 #include <chrono>
 #include <cstring>
@@ -23,6 +24,11 @@ using namespace std;
 int options(char*);
 
 /*
+    funzione di aiuto che mostra le possibili opzioni da riga di comando
+*/
+void help();
+
+/*
     funzione per hackerare bersagli multipli
     parametri:
         char**: array di stringa contenente i bersagli
@@ -32,26 +38,29 @@ void multipletargets(int, char**);
 
 int main(int argc, char **argv)
 {
-    int optionNumber = options(argv[1]);
-    hackingtools::prova("ciao");
-    /*Your favorite pausing goes here*/
+    int optionNumber = argc > 1 ? options(argv[1]) : -1;
+
     switch (optionNumber)
     {
-    case 1:
-        //multipletargets(argc, argv);
-        break;
+        case 1:
+            help();
+            break;
 
-    case 2:
-        cout << "whataspp exploit not implemented yet" << endl;
-        break;
-    
-    case 0:
-        cout << "unknown option: " << argv[1] << endl << "to seek help try running hack -h" << endl;
-        break;
+        case 2:
+            multipletargets(argc, argv);
+            break;
 
-    default:
-        cout << "no options inserted" << endl << "to seek help try running hack -h" << endl;
-        break;
+        case 3:
+            cout << "whataspp exploit not implemented yet" << endl;
+            break;
+        
+        case 0:
+            cout << "hack: Option " << argv[1] << " is not supported" << endl << "run hack -h to display all of the possible options" << endl;
+            break;
+
+        default:
+            cout << "hack: must specify one of the possible options" << endl << "run hack -h to display all of the possible options" << endl;
+            break;
     }
     
 
@@ -62,15 +71,34 @@ int options(char *option)
 {
     int response = 0;
 
-    if(strcmp(option, "-m") == 0)
+    if(strcmp(option, "-h") == 0)
         response = 1;
-    else
-    {
-        if(strcmp(option, "-w") == 0)
-            response = 2;
-    }
+    
+    if(strcmp(option, "-m") == 0)
+        response = 2;
+
+    if(strcmp(option, "-w") == 0)
+        response = 3;
 
     return response;
+}
+
+void help()
+{
+    string line;
+    ifstream helpFile;
+    
+    helpFile.open("../../help.txt");
+    if(!helpFile)
+    {
+        cout << "no such help file!" << endl;
+        exit(1);
+    }
+
+    while(getline(helpFile, line))
+        cout << line << endl;
+
+    helpFile.close();
 }
 
 void multipletargets(int N, char **targets)
@@ -91,7 +119,7 @@ void multipletargets(int N, char **targets)
         cout << "hacking target no: " << i - 1 << " (" << targets[i] << ')';
         this_thread::sleep_for(chrono::milliseconds(2000));
         cout << " done" << endl;
-        this_thread::sleep_for(chrono::milliseconds(100));
+        this_thread::sleep_for(chrono::milliseconds(300));
     }
 
     cout << endl << "--------------------" << endl << endl;

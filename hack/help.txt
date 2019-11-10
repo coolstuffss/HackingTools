@@ -1,2 +1,4 @@
-usage: hack 
--m multiple
+usage: hack -[option] <targets-name>
+  Multiple tagets:  -m
+  WhatsApp exploit: -w
+  Help:             -h
