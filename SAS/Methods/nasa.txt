@@ -1,4 +1,4 @@
 Initializing custom payload for NASA DataBases, getting [Target:](
-Processing crucial details in DataBases
-Main payload set BackDoor point from fsociety.dat
+Processing crucial details in DataBases [Target:](
+Main payload set BackDoor point from fsociety.dat [Target:](
 Sending to FBI for incrimination of [Target:](

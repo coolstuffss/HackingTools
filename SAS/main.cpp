@@ -33,6 +33,7 @@ void getHack();
 string getTarget();
 vector<string> getLines(string fileName);
 int getNRighe(string fileName);
+void slow_print(const string& str, int delay_time);
 
 int main()
 {
@@ -47,12 +48,21 @@ void getMetodo(string metodo){
     vector<string> lines{getLines(metodo)};
     //cout << lines.size() << endl;
     for(string cx:lines){
-        cout << Color(Gray,cx);
-        this_thread::sleep_for(chrono::milliseconds(760));
+        slow_print(Color(Gray,cx),100);
+        this_thread::sleep_for(chrono::milliseconds(250));
+        slow_print("... ",200);
+        this_thread::sleep_for(chrono::milliseconds(500));
         cout << Color(Green," [done]") << endl;
         this_thread::sleep_for(chrono::milliseconds(400));
     }
     Color(Default,"");
+}
+
+void slow_print(const string& str, int delay_time) {
+    for (size_t i = 0; i != str.size(); ++i) { 
+        cout << str[i];
+        Sleep(delay_time);
+    }
 }
 /*
 int getNRighe(string fileName){
@@ -83,12 +93,7 @@ vector<string> getLines(string fileName){
 string getTarget(){
     return "SteU";
 }
-/*
-void getMetodo(string metodo){
-    string postfix=".txt";
-    ofstream.open(strcat(metodo,postfix));
-}
-*/
+
 string Color(int color, string Message){
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     return Message;
