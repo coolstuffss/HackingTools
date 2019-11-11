@@ -28,42 +28,60 @@ string Color(int color, string Message);
 void getMetodo(string metodo);
 void getHack();
 string getTarget();
+istringstream* getLines(string fileName);
+int getNRighe(string fileName);
 
-int main()
+main()
 {
     getHack();
-    return 0;
 }
 
 void getHack()
 {
+    string path = "../../whatsapp.txt";
     string line;
-    ifstream meth;
-    string out;
+    string token;
     istringstream *lines = nullptr;
+        lines = getLines(path);       
 
-    meth.open("whatsapp.txt");
-        if(!meth)
-        {
-            cout << "no such file!" << endl;
-            exit(1);
+        for(int j = 0; j < getNRighe(path); j++){
+            while(getline(lines[j],token)){
+
+                cout << token << endl;
+            }
         }
+}
 
-    int linesnum = 3;
-    cout << linesnum << endl;
-    lines = new istringstream[linesnum];
-    int i = 0;
+int getNRighe(string fileName){
+    int out,i=0;
+    string line;
+    ifstream meth; 
+        meth.open(fileName);
+        
+        while(getline(meth, line) && i < out){
+            i++;
+        }
+        out = i;
+        meth.close();
+    return out;
+}
+
+istringstream* getLines(string fileName){
+    int i=0,linesnum=getNRighe(fileName);
+    string line;
+    istringstream *lines = nullptr;
+        lines = new istringstream[linesnum];
+    ifstream meth;
+        meth.open(fileName);
         while(getline(meth, line) && i < linesnum){
-            lines[i].str(line);
+            lines[i].str(line + "\n");
             i++;
         }
 
-    meth.close();
-
-        for(int j = 0; j < linesnum; j++){
-            cout << lines[j].str() << endl;
-        }
+        meth.close();
+    return lines;
 }
+
 string getTarget(){
     return "Amos";
 }
