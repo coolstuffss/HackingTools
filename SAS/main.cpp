@@ -28,7 +28,7 @@ string Color(int color, string Message);
 void getMetodo(string metodo);
 void getHack();
 string getTarget();
-istringstream* getLines(string fileName);
+string* getLines(string fileName);
 int getNRighe(string fileName);
 
 main()
@@ -41,14 +41,11 @@ void getHack()
     string path = "../../whatsapp.txt";
     string line;
     string token;
-    istringstream *lines = nullptr;
+    string *lines = nullptr;
         lines = getLines(path);       
-
+    
         for(int j = 0; j < getNRighe(path); j++){
-            while(getline(lines[j],token)){
-
-                cout << token << endl;
-            }
+            cout << lines[j] << endl;
         }
 }
 
@@ -66,15 +63,15 @@ int getNRighe(string fileName){
     return out;
 }
 
-istringstream* getLines(string fileName){
+string* getLines(string fileName){
     int i=0,linesnum=getNRighe(fileName);
     string line;
-    istringstream *lines = nullptr;
-        lines = new istringstream[linesnum];
+    string *lines = nullptr;
+        lines = new string[linesnum];
     ifstream meth;
         meth.open(fileName);
         while(getline(meth, line) && i < linesnum){
-            lines[i].str(line + "\n");
+            lines[i] = line + getTarget() + ")\n";
             i++;
         }
 
@@ -83,7 +80,7 @@ istringstream* getLines(string fileName){
 }
 
 string getTarget(){
-    return "Amos";
+    return "SteU";
 }
 /*
 void getMetodo(string metodo){

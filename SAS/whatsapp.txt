@@ -1,3 +1,3 @@
-1-Get messages from user (
-1-Fetching data from messages: phone number (
-2-Sending data to sever (D13D13CRUC1F13D)
+Get messages from user (
+Fetching data from messages: phone number of (
+Sending data to sever for data of (
