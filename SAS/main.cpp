@@ -1,10 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include <sstream>
+#include <vector>
 #include <string>
 #include <windows.h>
 #include <fstream>
+#include <iterator>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -28,54 +31,52 @@ string Color(int color, string Message);
 void getMetodo(string metodo);
 void getHack();
 string getTarget();
-string* getLines(string fileName);
+vector<string> getLines(string fileName);
 int getNRighe(string fileName);
 
-main()
+int main()
 {
-    getHack();
+    string path {"../../Methods/"};
+    string g;
+    cin >> g;
+    getMetodo(path + g + ".txt");
+    return 0;
 }
 
-void getHack()
-{
-    string path = "../../whatsapp.txt";
-    string line;
-    string token;
-    string *lines = nullptr;
-        lines = getLines(path);       
-    
-        for(int j = 0; j < getNRighe(path); j++){
-            cout << lines[j] << endl;
-        }
+void getMetodo(string metodo){
+    vector<string> lines{getLines(metodo)};
+    //cout << lines.size() << endl;
+    for(string cx:lines){
+        cout << Color(Gray,cx);
+        this_thread::sleep_for(chrono::milliseconds(760));
+        cout << Color(Green," [done]") << endl;
+        this_thread::sleep_for(chrono::milliseconds(400));
+    }
+    Color(Default,"");
 }
-
+/*
 int getNRighe(string fileName){
     int out,i=0;
     string line;
-    ifstream meth; 
-        meth.open(fileName);
-        
+    ifstream meth{fileName};
         while(getline(meth, line) && i < out){
             i++;
         }
-        out = i;
-        meth.close();
+    out = i;
+    meth.close();
     return out;
 }
-
-string* getLines(string fileName){
-    int i=0,linesnum=getNRighe(fileName);
-    string line;
-    string *lines = nullptr;
-        lines = new string[linesnum];
-    ifstream meth;
-        meth.open(fileName);
-        while(getline(meth, line) && i < linesnum){
-            lines[i] = line + getTarget() + ")\n";
-            i++;
-        }
-
-        meth.close();
+*/
+vector<string> getLines(string fileName){
+    vector<string> lines{};
+    string line{""};
+    ifstream meth{fileName};
+    while(getline(meth, line)) {
+        lines.emplace_back(line + getTarget() + ")");
+    }
+    /*copy(istream_iterator<string>(meth), istream_iterator<string>(),
+         [&] (string const& l) -> void { lines.emplace_back(l + getTarget() + ")"); });*/
+    meth.close();
     return lines;
 }
 
@@ -87,9 +88,8 @@ void getMetodo(string metodo){
     string postfix=".txt";
     ofstream.open(strcat(metodo,postfix));
 }
-*//*
+*/
 string Color(int color, string Message){
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     return Message;
 }
-*/

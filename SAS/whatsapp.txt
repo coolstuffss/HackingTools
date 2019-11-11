@@ -1,3 +1,0 @@
-Get messages from user (
-Fetching data from messages: phone number of (
-Sending data to sever for data of (
