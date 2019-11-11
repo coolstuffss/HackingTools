@@ -39,6 +39,9 @@ void multipletargets(int, char**);
 int main(int argc, char **argv)
 {
     int optionNumber = argc > 1 ? options(argv[1]) : -1;
+    hackingtools::Target t1{"Amos", 3};
+
+    cout << t1.getTarget() << endl << t1.getColor() << endl;
 
     switch (optionNumber)
     {
@@ -47,7 +50,7 @@ int main(int argc, char **argv)
             break;
 
         case 2:
-            multipletargets(argc, argv);
+            //multipletargets(argc, argv);
             break;
 
         case 3:

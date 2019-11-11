@@ -3,8 +3,10 @@
 
 #ifndef HACKINGTOOLS_H
 #define HACKINGTOOLS_H
+
 namespace hackingtools
 {
+    //class Traget
     class Target
     {
         public:
@@ -16,6 +18,7 @@ namespace hackingtools
             std::string TName;
             int TColor;
     };
+    //class Target
 
     void prova(std::string);
 }

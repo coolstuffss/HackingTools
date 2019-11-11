@@ -5,7 +5,7 @@
 
 namespace hackingtools
 {
-
+    //class Target
     Target::Target(std::string name, int color)
         :TName(name),
         TColor(color)
@@ -14,6 +14,7 @@ namespace hackingtools
     std::string Target::getTarget(){ return TName; }
 
     int Target::getColor(){ return TColor; }
+    //class Target
 
     void prova(std::string sas)
     {
