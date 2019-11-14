@@ -8,6 +8,7 @@
 #include <iterator>
 #include <chrono>
 #include <thread>
+#include <cstring>
 
 using namespace std;
 
@@ -48,12 +49,12 @@ void getMetodo(string metodo){
     vector<string> lines{getLines(metodo)};
     //cout << lines.size() << endl;
     for(string cx:lines){
-        slow_print(Color(Gray,cx),100);
-        this_thread::sleep_for(chrono::milliseconds(250));
+        slow_print(Color(Gray,cx),70);
+        this_thread::sleep_for(chrono::milliseconds(150));
         slow_print("... ",200);
         this_thread::sleep_for(chrono::milliseconds(500));
         cout << Color(Green," [done]") << endl;
-        this_thread::sleep_for(chrono::milliseconds(400));
+        this_thread::sleep_for(chrono::milliseconds(200));
     }
     Color(Default,"");
 }
@@ -61,7 +62,8 @@ void getMetodo(string metodo){
 void slow_print(const string& str, int delay_time) {
     for (size_t i = 0; i != str.size(); ++i) { 
         cout << str[i];
-        Sleep(delay_time);
+            if(isblank(str[i])) Sleep(delay_time + 150);
+            else Sleep(delay_time);
     }
 }
 /*
@@ -91,7 +93,7 @@ vector<string> getLines(string fileName){
 }
 
 string getTarget(){
-    return "SteU";
+    return "Amos Bruciaferri";
 }
 
 string Color(int color, string Message){

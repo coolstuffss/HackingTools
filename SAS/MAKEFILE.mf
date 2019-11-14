@@ -1,0 +1,2 @@
+SAS : main.cpp
+    g++ -std=c++1 SAS/SAS.cpp -o SAS/bin/Debug/SAS.exe
