@@ -1,8 +1,9 @@
-#include <fstream>
-#include <string>
-
 #ifndef HACKINGTOOLS_H
 #define HACKINGTOOLS_H
+
+#include <fstream>
+#include <string>
+#include <windows.h>
 
 namespace hackingtools
 {
@@ -20,7 +21,7 @@ namespace hackingtools
     };
     //class Target
 
-    void prova(std::string);
+    std::string Color(int, std::string);
 }
 
 #endif //HACKINGTOOLS_H

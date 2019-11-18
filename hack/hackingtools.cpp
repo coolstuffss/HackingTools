@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 #include "hackingtools.h"
 
@@ -15,9 +16,9 @@ namespace hackingtools
 
     int Target::getColor(){ return TColor; }
     //class Target
-
-    void prova(std::string sas)
-    {
-        std::cout << sas << std::endl;
+    
+    std::string Color(int color, std::string Message){
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+        return Message;
     }
 }
