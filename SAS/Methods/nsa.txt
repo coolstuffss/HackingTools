@@ -1,3 +1,0 @@
-Initializing exploit for [Target:](
-Looking into recordset for encrypted personal data [Target:](
-Got main payload, sending to server. [Target:](
