@@ -13,3 +13,16 @@
 	<windows.h>
 	<fstream>
 
+1574069255 source:c:\users\deskt\downloads\hackingtools-master\sas\main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<iostream>
+	<vector>
+	<string>
+	<windows.h>
+	<fstream>
+	<iterator>
+	<chrono>
+	<thread>
+	<cstring>
+
