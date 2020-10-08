@@ -1,2 +1,2 @@
 # HackingTools
-just a prank bro
+fake hacking scripts, for known services 
