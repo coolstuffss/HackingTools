@@ -24,7 +24,6 @@
 //the following are UBUNTU/LINUX, and MacOS ONLY terminal color codes.
 #define Default   "\033[0m"
 #define Red     "\033[31m"      /* Red */
-#define Gray "\e[2m"
 #define Green   "\033[32m"      /* Green */
 #define Yellow  "\033[33m"      /* Yellow */
 #define Blue    "\033[34m"      /* Blue */
@@ -94,7 +93,7 @@ void getMetodo(string metodo){
 
     #ifdef __linux__
     for(string cx:lines){
-        slow_print(Color(Gray,cx),70);
+        slow_print(Color(Cyan,cx),70);
         this_thread::sleep_for(chrono::milliseconds(150));
         slow_print("... ",200);
         this_thread::sleep_for(chrono::milliseconds(500));
@@ -169,3 +168,4 @@ string getTarget(){
 #ifdef __linux__
     string Color(string color, string Message){return color + Message + Default;}
 #endif // __linux__
+
